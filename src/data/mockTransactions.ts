@@ -1,0 +1,186 @@
+export interface Transaction {
+  id: string;
+  userId: string;
+  targetUserId: string;
+  amount: number;
+  timestamp: string;
+  status: "safe" | "anomaly" | "review";
+  riskScore: number;
+  type: string;
+  ipAddress: string;
+  location: string;
+  riskBreakdown: { label: string; score: number }[];
+}
+
+export const transactions: Transaction[] = [
+  {
+    id: "TXN-8A3F21",
+    userId: "USR-0012",
+    targetUserId: "USR-0089",
+    amount: 2450.00,
+    timestamp: "2026-04-11T14:32:00Z",
+    status: "safe",
+    riskScore: 12,
+    type: "Wire Transfer",
+    ipAddress: "192.168.1.45",
+    location: "New York, US",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 5 },
+      { label: "Unusual Time", score: 3 },
+      { label: "Amount Pattern", score: 4 },
+    ],
+  },
+  {
+    id: "TXN-7B9E44",
+    userId: "USR-0034",
+    targetUserId: "USR-0012",
+    amount: 89.99,
+    timestamp: "2026-04-11T14:28:00Z",
+    status: "anomaly",
+    riskScore: 87,
+    type: "Rapid Transfer",
+    ipAddress: "10.0.0.112",
+    location: "Lagos, NG",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 80 },
+      { label: "Unusual Time", score: 15 },
+      { label: "Velocity Check", score: 92 },
+    ],
+  },
+  {
+    id: "TXN-2C5D18",
+    userId: "USR-0089",
+    targetUserId: "USR-0034",
+    amount: 150.00,
+    timestamp: "2026-04-11T14:25:00Z",
+    status: "anomaly",
+    riskScore: 74,
+    type: "P2P Payment",
+    ipAddress: "172.16.0.8",
+    location: "Unknown VPN",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 70 },
+      { label: "Circular Pattern", score: 85 },
+      { label: "Amount Pattern", score: 60 },
+    ],
+  },
+  {
+    id: "TXN-9F1A67",
+    userId: "USR-0056",
+    targetUserId: "USR-0078",
+    amount: 5200.00,
+    timestamp: "2026-04-11T13:55:00Z",
+    status: "safe",
+    riskScore: 8,
+    type: "Payroll",
+    ipAddress: "203.45.67.89",
+    location: "London, UK",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 2 },
+      { label: "Unusual Time", score: 5 },
+      { label: "Amount Pattern", score: 10 },
+    ],
+  },
+  {
+    id: "TXN-4E8B32",
+    userId: "USR-0078",
+    targetUserId: "USR-0056",
+    amount: 45.50,
+    timestamp: "2026-04-11T13:42:00Z",
+    status: "review",
+    riskScore: 45,
+    type: "Micro Transfer",
+    ipAddress: "10.0.0.55",
+    location: "São Paulo, BR",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 35 },
+      { label: "Unusual Time", score: 40 },
+      { label: "Velocity Check", score: 55 },
+    ],
+  },
+  {
+    id: "TXN-6D2C91",
+    userId: "USR-0023",
+    targetUserId: "USR-0045",
+    amount: 12500.00,
+    timestamp: "2026-04-11T12:18:00Z",
+    status: "safe",
+    riskScore: 15,
+    type: "Investment",
+    ipAddress: "185.22.33.44",
+    location: "Zurich, CH",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 8 },
+      { label: "Unusual Time", score: 5 },
+      { label: "Amount Pattern", score: 20 },
+    ],
+  },
+  {
+    id: "TXN-1A7F53",
+    userId: "USR-0045",
+    targetUserId: "USR-0023",
+    amount: 29.99,
+    timestamp: "2026-04-11T12:15:00Z",
+    status: "anomaly",
+    riskScore: 91,
+    type: "Rapid Transfer",
+    ipAddress: "10.0.0.200",
+    location: "Unknown Proxy",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 95 },
+      { label: "Circular Pattern", score: 88 },
+      { label: "Velocity Check", score: 90 },
+    ],
+  },
+  {
+    id: "TXN-3B4E76",
+    userId: "USR-0091",
+    targetUserId: "USR-0102",
+    amount: 780.00,
+    timestamp: "2026-04-11T11:30:00Z",
+    status: "safe",
+    riskScore: 5,
+    type: "Bill Payment",
+    ipAddress: "98.76.54.32",
+    location: "Toronto, CA",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 2 },
+      { label: "Unusual Time", score: 3 },
+      { label: "Amount Pattern", score: 8 },
+    ],
+  },
+  {
+    id: "TXN-5C9D04",
+    userId: "USR-0102",
+    targetUserId: "USR-0012",
+    amount: 67.00,
+    timestamp: "2026-04-11T11:22:00Z",
+    status: "review",
+    riskScore: 52,
+    type: "P2P Payment",
+    ipAddress: "172.16.5.100",
+    location: "Mumbai, IN",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 45 },
+      { label: "Unusual Time", score: 60 },
+      { label: "Amount Pattern", score: 48 },
+    ],
+  },
+  {
+    id: "TXN-8E2A19",
+    userId: "USR-0034",
+    targetUserId: "USR-0089",
+    amount: 33.00,
+    timestamp: "2026-04-11T11:05:00Z",
+    status: "anomaly",
+    riskScore: 82,
+    type: "Rapid Transfer",
+    ipAddress: "10.0.0.112",
+    location: "Lagos, NG",
+    riskBreakdown: [
+      { label: "IP Mismatch", score: 78 },
+      { label: "Circular Pattern", score: 90 },
+      { label: "Velocity Check", score: 85 },
+    ],
+  },
+];
